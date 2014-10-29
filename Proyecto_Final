@@ -15,8 +15,11 @@ board.on("ready", function() {
   	servo = new five.Servo({
     	pin: 6,
     });
-	 this.pinMode(8, five.Pin.INPUT);
-  	this.digitalRead(8, function(value) {
+	 s1=this.pinMode(3, five.Pin.INPUT);
+   s2=this.pinMode(4, five.Pin.INPUT);
+   s3=this.pinMode(5, five.Pin.INPUT);
+   s4=this.pinMode(6, five.Pin.INPUT);
+  	this.digitalRead(s1, function(value) {
     	console.log(value);
     	if (value==1) {
     		servo.to(90);
