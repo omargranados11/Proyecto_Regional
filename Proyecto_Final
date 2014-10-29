@@ -1,0 +1,27 @@
+var five = require("johnny-five"),
+  board, slider, servo, range;
+
+board = new five.Board();
+
+board.on("ready", function() {
+	//sensores = new five.sensores.Array([8, 12, 13]);
+	//sensor=new five.sensor({
+	//	pin:8
+	//});
+	//var sensor=this.pinMode(8, five.Pin.INPUT);
+	led = new five.Led({
+    	pin: 13
+  		});
+  	servo = new five.Servo({
+    	pin: 6,
+    });
+	 this.pinMode(8, five.Pin.INPUT);
+  	this.digitalRead(8, function(value) {
+    	console.log(value);
+    	if (value==1) {
+    		servo.to(90);
+    	} else{
+    		servo.to(0);
+    	};
+  });
+});
