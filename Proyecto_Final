@@ -1,30 +1,41 @@
 var five = require("johnny-five"),
-  board, slider, servo, range;
+    board = new five.Board();
 
-board = new five.Board();
+    board.on("ready", function() {
 
-board.on("ready", function() {
-	//sensores = new five.sensores.Array([8, 12, 13]);
-	//sensor=new five.sensor({
-	//	pin:8
-	//});
-	//var sensor=this.pinMode(8, five.Pin.INPUT);
-	led = new five.Led({
-    	pin: 13
-  		});
-  	servo = new five.Servo({
-    	pin: 6,
+    servo = new five.Servo({
+    pin:6,
     });
-	 s1=this.pinMode(3, five.Pin.INPUT);
-   s2=this.pinMode(4, five.Pin.INPUT);
-   s3=this.pinMode(5, five.Pin.INPUT);
-   s4=this.pinMode(6, five.Pin.INPUT);
-  	this.digitalRead(s1, function(value) {
-    	console.log(value);
-    	if (value==1) {
-    		servo.to(90);
-    	} else{
-    		servo.to(0);
-    	};
+    this.pinMode(7,five.Pin.INPUT);
+    this.pinMode(8,five.Pin.INPUT);
+    //var digital2 = new five.Pin(8);
+    this.pinMode(10,five.Pin.INPUT);
+    //var digital = new five.Pin(10);
+    // var valor1 = 0;
+    // var valor2 = 0;
+    // var valor3 = 0;
+    
+    this.digitalRead(7,function(valor1){
+    //console.log("valor 1:"+valor1);
+    if (valor1==1) {
+      servo.to(130)
+      console.log("100");
+      };
+    });
+
+    this.digitalRead(8,function(valor2){
+    //  console.log("valor 2:"+valor2);
+    if (valor2==0) {
+      servo.to(150)
+      console.log("500");
+    };
+    });
+    
+    this.digitalRead(10,function(valor3){
+     // console.log("valor 3:"+valor3);
+     if (valor3==0) {
+      servo.to(170)
+      console.log("200");
+     };
+    });
   });
-});
