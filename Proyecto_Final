@@ -1,4 +1,4 @@
-var five = require("johnny-five"),
+  var five = require("johnny-five"),
     board = new five.Board();
 
     board.on("ready", function() {
@@ -6,6 +6,7 @@ var five = require("johnny-five"),
     servo = new five.Servo({
     pin:6,
     });
+    this.pinMode(4,five.Pin.INPUT);
     this.pinMode(7,five.Pin.INPUT);
     this.pinMode(8,five.Pin.INPUT);
     //var digital2 = new five.Pin(8);
@@ -14,28 +15,33 @@ var five = require("johnny-five"),
     // var valor1 = 0;
     // var valor2 = 0;
     // var valor3 = 0;
-    
+    this.digitalRead(4,function(valor1){
+      if (valor1==1) {
+        servo.to(110)
+        console.log("50");
+        };
+    }); 
     this.digitalRead(7,function(valor1){
     //console.log("valor 1:"+valor1);
-    if (valor1==1) {
-      servo.to(130)
-      console.log("100");
-      };
+      if (valor1==1) {
+        servo.to(130)
+        console.log("100");
+        };
     });
 
     this.digitalRead(8,function(valor2){
     //  console.log("valor 2:"+valor2);
-    if (valor2==0) {
-      servo.to(150)
-      console.log("500");
-    };
+      if (valor2==0) {
+        servo.to(150)
+        console.log("500");
+      };
     });
     
     this.digitalRead(10,function(valor3){
      // console.log("valor 3:"+valor3);
-     if (valor3==0) {
-      servo.to(170)
-      console.log("200");
-     };
+      if (valor3==0) {
+        servo.to(170)
+        console.log("200");
+      };
     });
   });
