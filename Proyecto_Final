@@ -24,7 +24,7 @@
     this.digitalRead(7,function(valor1){
     //console.log("valor 1:"+valor1);
       if (valor1==0) {
-        servo.to(130)
+        servo.to(120)
         console.log("100");
         };
     });
@@ -32,16 +32,16 @@
     this.digitalRead(8,function(valor2){
     //  console.log("valor 2:"+valor2);
       if (valor2==0) {
-        servo.to(150)
-        console.log("500");
+        servo.to(130)
+        console.log("200");
       };
     });
     
     this.digitalRead(10,function(valor3){
      // console.log("valor 3:"+valor3);
       if (valor3==0) {
-        servo.to(170)
-        console.log("200");
+        servo.to(140)
+        console.log("1000");
       };
     });
   });
