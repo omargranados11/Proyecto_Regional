@@ -16,14 +16,14 @@
     // var valor2 = 0;
     // var valor3 = 0;
     this.digitalRead(4,function(valor1){
-      if (valor1==1) {
+      if (valor1==0) {
         servo.to(110)
         console.log("50");
         };
     }); 
     this.digitalRead(7,function(valor1){
     //console.log("valor 1:"+valor1);
-      if (valor1==1) {
+      if (valor1==0) {
         servo.to(130)
         console.log("100");
         };
